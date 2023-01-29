@@ -8,7 +8,7 @@ import org.springframework.r2dbc.connection.init.ResourceDatabasePopulator
 import org.springframework.stereotype.Component
 
 @Component
-class R2DBCConfig {
+class MySQLConfig {
 
     @Bean
     fun init(

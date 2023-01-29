@@ -4,8 +4,8 @@ plugins {
 
 dependencies {
 
-    implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
@@ -14,7 +14,8 @@ dependencies {
 
     implementation("at.favre.lib:bcrypt:0.9.0")
 
-    runtimeOnly("io.r2dbc:r2dbc-h2")
+    // https://mvnrepository.com/artifact/jakarta.persistence/jakarta.persistence-api
+    implementation("jakarta.persistence:jakarta.persistence-api:3.1.0")
 }
 
 tasks.getByName<Test>("test") {

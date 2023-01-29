@@ -1,18 +1,17 @@
 package app.junsu.jwt.domain.entity.user
 
-import org.springframework.data.annotation.CreatedDate
-import org.springframework.data.annotation.Id
-import org.springframework.data.annotation.LastModifiedDate
-import org.springframework.data.relational.core.mapping.Column
-import org.springframework.data.relational.core.mapping.Table
-import java.time.LocalDateTime
+import app.junsu.jwt.domain.entity.base.BaseEntity
+import jakarta.persistence.*
 
-@Table("users")
-data class User(
-    @Id val id: Long? = null,
-    @Column("email") val email: String,
-    @Column("username") val username: String,
-    @Column("profile_url") val profileUrl: String?,
-    @CreatedDate @Column("created_at") val createdAt: LocalDateTime? = null,
-    @LastModifiedDate @Column("updated_at") val updatedAt: LocalDateTime? = null,
-)
+@Entity
+data class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    val id: Long? = null
+    @Column(name = "email")
+    var email: String
+    @Column(name = "username")
+    var username: String
+    @Column(name = "profile_url")
+    var profileUrl: String?
+}
